@@ -98,14 +98,16 @@
 			sortBtn.TabIndex = 5;
 			sortBtn.Text = "Sort";
 			sortBtn.UseVisualStyleBackColor = true;
+			sortBtn.Click += sortBtn_Click;
 			// 
 			// algorithmCb
 			// 
-			algorithmCb.FormattingEnabled = true;
+			algorithmCb.Items.AddRange(new object[] { "Insertion Sort", "Bubble Sort" });
 			algorithmCb.Location = new Point(597, 462);
 			algorithmCb.Name = "algorithmCb";
 			algorithmCb.Size = new Size(182, 33);
 			algorithmCb.TabIndex = 6;
+			algorithmCb.DropDownStyle = ComboBoxStyle.DropDownList;
 			// 
 			// label1
 			// 
@@ -149,7 +151,7 @@
 
 		#endregion
 
-		private PictureBox pb1;
+		public PictureBox pb1;
 		private Button shuffleBtn;
 		private Button clearBtn;
 		private TrackBar arraySizeTb;

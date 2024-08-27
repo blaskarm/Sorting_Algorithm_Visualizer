@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Linq;
+using AlgorithmVisualiser.SortAlgorithms;
 
 namespace AlgorithmVisualiser
 {
@@ -7,8 +8,9 @@ namespace AlgorithmVisualiser
 	{
 		Bitmap bm1;
 		Graphics g1;
-		ArrayList array;
 		Pen pen;
+		ArrayList array;
+		InsertionSort insertionSort;
 
 		public MainForm()
 		{
@@ -19,10 +21,14 @@ namespace AlgorithmVisualiser
 			g1 = Graphics.FromImage(bm1);
 			pb1.Image = bm1;
 			pen = new Pen(Color.Black);
+
+			insertionSort = new InsertionSort(this, bm1, g1, pen);
 		}
 
 		private void shuffleBtn_Click(object sender, EventArgs e)
 		{
+			MakeArray();
+			RandomizeArray();
 			DrawArray();
 		}
 
@@ -42,9 +48,6 @@ namespace AlgorithmVisualiser
 
 		private void DrawArray()
 		{
-			MakeArray();
-			RandomizeArray();
-
 			pb1.Image = bm1;
 			g1.Clear(Color.White);
 
@@ -69,6 +72,12 @@ namespace AlgorithmVisualiser
 		{
 			pb1.Image = bm1;
 			g1.Clear(Color.White);
+		}
+
+		private void sortBtn_Click(object sender, EventArgs e)
+		{
+			insertionSort.Sort(array);
+			//DrawArray();
 		}
 
 		private void arraySizeTb_ValueChanged(object sender, EventArgs e)
