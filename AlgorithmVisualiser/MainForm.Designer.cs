@@ -74,7 +74,7 @@
 			// arraySizeTb
 			// 
 			arraySizeTb.Location = new Point(175, 349);
-			arraySizeTb.Maximum = 50;
+			arraySizeTb.Maximum = 1000;
 			arraySizeTb.Minimum = 10;
 			arraySizeTb.Name = "arraySizeTb";
 			arraySizeTb.Size = new Size(156, 69);
@@ -103,12 +103,11 @@
 			// algorithmCb
 			// 
 			algorithmCb.DropDownStyle = ComboBoxStyle.DropDownList;
-			algorithmCb.Items.AddRange(new object[] { "Insertion Sort", "Bubble Sort" });
+			algorithmCb.Items.AddRange(new object[] { "Insertion Sort", "Bubble Sort", "Quick Sort", "Selection Sort" });
 			algorithmCb.Location = new Point(597, 462);
 			algorithmCb.Name = "algorithmCb";
 			algorithmCb.Size = new Size(182, 33);
 			algorithmCb.TabIndex = 6;
-			algorithmCb.SelectedIndex = 0;
 			algorithmCb.SelectedIndexChanged += algorithmCb_SelectedIndexChanged;
 			// 
 			// label1

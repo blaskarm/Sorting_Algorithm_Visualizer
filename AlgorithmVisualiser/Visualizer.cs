@@ -12,8 +12,9 @@ namespace AlgorithmVisualiser
 {
 	public class Visualizer
 	{
-		public Control pictureBox;
+		Control pictureBox;
 		Graphics graphics;
+
 		public Visualizer(Control pictureBox, Graphics graphics)
 		{
 			this.pictureBox = pictureBox;

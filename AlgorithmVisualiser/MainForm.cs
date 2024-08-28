@@ -1,11 +1,12 @@
 using System.Collections;
 using System.Linq;
 using AlgorithmVisualiser.SortAlgorithms;
+using AlgorithmVisualiser.SortAlgorithms.Algorithms;
 using AlgorithmVisualiser.SortAlgorithms.Context;
 
 namespace AlgorithmVisualiser
 {
-	public partial class MainForm : Form
+    public partial class MainForm : Form
 	{
 		Bitmap bm1;
 		Graphics g1;
@@ -91,6 +92,12 @@ namespace AlgorithmVisualiser
 					break;
 				case "Bubble Sort":
 					sorter.SetSortAlgorithm(new BubbleSort(visualizer));
+					break;
+				case "Quick Sort":
+					sorter.SetSortAlgorithm(new QuickSort(visualizer));
+					break;
+				case "Selection Sort":
+					sorter.SetSortAlgorithm(new SelectionSort(visualizer));
 					break;
 			}
 		}
