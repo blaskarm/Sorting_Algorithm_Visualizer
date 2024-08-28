@@ -1,4 +1,5 @@
 using System.Collections;
+using System.Diagnostics;
 using System.Linq;
 using AlgorithmVisualiser.SortAlgorithms;
 using AlgorithmVisualiser.SortAlgorithms.Algorithms;
@@ -46,7 +47,11 @@ namespace AlgorithmVisualiser
 
 		private void sortBtn_Click(object sender, EventArgs e)
 		{
+			Stopwatch stopWatch = new Stopwatch();
+			stopWatch.Start();
 			sorter.Sort(array);
+			stopWatch.Stop();
+			timerLabel.Text = stopWatch.Elapsed.ToString();
 		}
 
 		private void arraySizeTb_ValueChanged(object sender, EventArgs e)

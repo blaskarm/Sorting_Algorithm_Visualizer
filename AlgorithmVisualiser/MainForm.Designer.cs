@@ -37,6 +37,7 @@
 			algorithmCb = new ComboBox();
 			label1 = new Label();
 			label2 = new Label();
+			timerLabel = new Label();
 			((System.ComponentModel.ISupportInitialize)pb1).BeginInit();
 			((System.ComponentModel.ISupportInitialize)arraySizeTb).BeginInit();
 			SuspendLayout();
@@ -74,12 +75,12 @@
 			// arraySizeTb
 			// 
 			arraySizeTb.Location = new Point(175, 349);
-			arraySizeTb.Maximum = 1000;
-			arraySizeTb.Minimum = 10;
+			arraySizeTb.Maximum = 500;
+			arraySizeTb.Minimum = 100;
 			arraySizeTb.Name = "arraySizeTb";
 			arraySizeTb.Size = new Size(156, 69);
 			arraySizeTb.TabIndex = 3;
-			arraySizeTb.Value = 10;
+			arraySizeTb.Value = 100;
 			arraySizeTb.ValueChanged += arraySizeTb_ValueChanged;
 			// 
 			// counterLabel
@@ -128,11 +129,20 @@
 			label2.TabIndex = 8;
 			label2.Text = "Array Size";
 			// 
+			// timerLabel
+			// 
+			timerLabel.AutoSize = true;
+			timerLabel.Location = new Point(175, 36);
+			timerLabel.Name = "timerLabel";
+			timerLabel.Size = new Size(0, 25);
+			timerLabel.TabIndex = 9;
+			// 
 			// MainForm
 			// 
 			AutoScaleDimensions = new SizeF(10F, 25F);
 			AutoScaleMode = AutoScaleMode.Font;
 			ClientSize = new Size(928, 545);
+			Controls.Add(timerLabel);
 			Controls.Add(label2);
 			Controls.Add(label1);
 			Controls.Add(algorithmCb);
@@ -161,5 +171,6 @@
 		private ComboBox algorithmCb;
 		private Label label1;
 		private Label label2;
+		private Label timerLabel;
 	}
 }
