@@ -13,8 +13,6 @@ namespace AlgorithmVisualiser
 		Graphics g1;
 		Pen pen;
 		ArrayList array;
-		InsertionSort insertionSort;
-		BubbleSort bubbleSort;
 		Visualizer visualizer;
 		Sorter sorter;
 
@@ -103,6 +101,9 @@ namespace AlgorithmVisualiser
 					break;
 				case "Selection Sort":
 					sorter.SetSortAlgorithm(new SelectionSort(visualizer));
+					break;
+				case "Merge Sort":
+					sorter.SetSortAlgorithm(new MergeSort(visualizer));
 					break;
 			}
 		}

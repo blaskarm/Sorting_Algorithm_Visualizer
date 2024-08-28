@@ -104,7 +104,7 @@
 			// algorithmCb
 			// 
 			algorithmCb.DropDownStyle = ComboBoxStyle.DropDownList;
-			algorithmCb.Items.AddRange(new object[] { "Insertion Sort", "Bubble Sort", "Quick Sort", "Selection Sort" });
+			algorithmCb.Items.AddRange(new object[] { "Insertion Sort", "Bubble Sort", "Quick Sort", "Selection Sort", "Merge Sort" });
 			algorithmCb.Location = new Point(597, 462);
 			algorithmCb.Name = "algorithmCb";
 			algorithmCb.Size = new Size(182, 33);
