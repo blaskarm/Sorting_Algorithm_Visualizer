@@ -102,12 +102,14 @@
 			// 
 			// algorithmCb
 			// 
+			algorithmCb.DropDownStyle = ComboBoxStyle.DropDownList;
 			algorithmCb.Items.AddRange(new object[] { "Insertion Sort", "Bubble Sort" });
 			algorithmCb.Location = new Point(597, 462);
 			algorithmCb.Name = "algorithmCb";
 			algorithmCb.Size = new Size(182, 33);
 			algorithmCb.TabIndex = 6;
-			algorithmCb.DropDownStyle = ComboBoxStyle.DropDownList;
+			algorithmCb.SelectedIndex = 0;
+			algorithmCb.SelectedIndexChanged += algorithmCb_SelectedIndexChanged;
 			// 
 			// label1
 			// 
@@ -151,7 +153,7 @@
 
 		#endregion
 
-		public PictureBox pb1;
+		private PictureBox pb1;
 		private Button shuffleBtn;
 		private Button clearBtn;
 		private TrackBar arraySizeTb;

@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Linq;
 using AlgorithmVisualiser.SortAlgorithms;
+using AlgorithmVisualiser.SortAlgorithms.Context;
 
 namespace AlgorithmVisualiser
 {
@@ -11,6 +12,9 @@ namespace AlgorithmVisualiser
 		Pen pen;
 		ArrayList array;
 		InsertionSort insertionSort;
+		BubbleSort bubbleSort;
+		Visualizer visualizer;
+		Sorter sorter;
 
 		public MainForm()
 		{
@@ -19,17 +23,34 @@ namespace AlgorithmVisualiser
 
 			bm1 = new Bitmap(pb1.Width, pb1.Height);
 			g1 = Graphics.FromImage(bm1);
-			pb1.Image = bm1;
 			pen = new Pen(Color.Black);
 
-			insertionSort = new InsertionSort(this, bm1, g1, pen);
+			visualizer = new Visualizer(this.pb1, g1);
+			sorter = new Sorter(new InsertionSort(visualizer));
 		}
 
 		private void shuffleBtn_Click(object sender, EventArgs e)
 		{
 			MakeArray();
 			RandomizeArray();
-			DrawArray();
+			pb1.Image = bm1;
+			visualizer.DrawArray(array);
+		}
+
+		private void clearBtn_Click(object sender, EventArgs e)
+		{
+			pb1.Image = bm1;
+			g1.Clear(Color.White);
+		}
+
+		private void sortBtn_Click(object sender, EventArgs e)
+		{
+			sorter.Sort(array);
+		}
+
+		private void arraySizeTb_ValueChanged(object sender, EventArgs e)
+		{
+			counterLabel.Text = arraySizeTb.Value.ToString();
 		}
 
 		private void RandomizeArray()
@@ -46,18 +67,6 @@ namespace AlgorithmVisualiser
 			}
 		}
 
-		private void DrawArray()
-		{
-			pb1.Image = bm1;
-			g1.Clear(Color.White);
-
-			for (int i = 0; i < array.Count; i++)
-			{
-				int x = (int)(((double)pb1.Width / array.Count) * i);
-				g1.DrawLine(pen, new Point(x, pb1.Height), new Point(x, (int)pb1.Height - (int)array[i]));
-			}
-		}
-
 		private void MakeArray()
 		{
 			array = new ArrayList(arraySizeTb.Value);
@@ -68,21 +77,22 @@ namespace AlgorithmVisualiser
 			}
 		}
 
-		private void clearBtn_Click(object sender, EventArgs e)
+		private void algorithmCb_SelectedIndexChanged(object sender, EventArgs e)
 		{
-			pb1.Image = bm1;
-			g1.Clear(Color.White);
+			SetSortingAlgorithm(algorithmCb.SelectedItem as string);
 		}
 
-		private void sortBtn_Click(object sender, EventArgs e)
+		private void SetSortingAlgorithm(string? v)
 		{
-			insertionSort.Sort(array);
-			//DrawArray();
-		}
-
-		private void arraySizeTb_ValueChanged(object sender, EventArgs e)
-		{
-			counterLabel.Text = arraySizeTb.Value.ToString();
+			switch (v)
+			{
+				case "Insertion Sort":
+					sorter.SetSortAlgorithm(new InsertionSort(visualizer));
+					break;
+				case "Bubble Sort":
+					sorter.SetSortAlgorithm(new BubbleSort(visualizer));
+					break;
+			}
 		}
 	}
 }
